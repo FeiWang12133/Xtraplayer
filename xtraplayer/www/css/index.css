@@ -1,0 +1,304 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #e9ecef), color-stop(0.51, rgb(248, 249, 250)) );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.jpg) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+div#load_screen{
+	background:#000;
+	opacity:1;
+	position:fixed;
+	z-index:1;
+	top:0px;
+	width:100%;
+	height:100%;
+	
+}
+div#load_screen > div#loading{
+	color:#fff;
+	width:20%;
+	height:10px;
+	margin: 100px auto;
+}
+
+.navbar{
+    background-color: #fff;
+    width: 100%;
+    position: relative;
+    display: table;
+}
+
+.navbar-toggler-icon {
+    background-color: #f87373;
+}
+
+.header {
+	display: flex;
+	background-color: #fff;
+	border-bottom: 1px solid black;
+}
+
+a.header-title{
+	font: 1.2em "Fira Sans", serif;
+	font-size: 20px;
+	display: table-cell;
+}
+
+h3{
+	font: 1.2em "Fira Sans", serif;
+	font-size: 20px;
+}
+
+h2#loginheader {
+    font: 1.2em "Fira Sans", serif;
+    font-size: 20px;
+}
+
+.bg-info {
+    background-color: #dee2e6!important;
+}
+.nav-tabs {
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.nav-tabs .nav-link.active {
+    color: #f8f9fa;
+    background-color: #f87373;
+    border-color: #dee2e6 #dee2e6 #fff;
+    width: 50%;
+	text-align: center;
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    width: 50%;
+	text-align: center;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.tab-content>.active {
+    display: block;
+	background-image:url(../img/list.jpg);
+	background-color: #cccccc;
+	max-height: 500px;
+	height: 480px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+img {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+
+img:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+}
+
+#listimg{
+    max-height: 120px;
+    position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+p#current-song{
+	color: green;
+}
+
+p#song-name{
+	text-align: center;
+	font-size: 16px;
+	text-transform: none;
+}
+
+p#lyrics{
+	text-align: center;
+	font-size:20px;
+	text-transform: none;
+    font-size: medium;
+    font-family: auto;
+    color: #6c757d;
+}
+p#name{
+	text-align: center;
+    font-size: large;
+    font-family: auto;
+    color: #6c757d;
+	padding: 20px;
+}
+
+p#songs {
+    text-align: center;
+    font-size: large;
+    font-family: auto;
+    color: #6c757d;
+	padding: 20px;
+}
+.container-fluid {
+   padding-left: 0px;
+	padding-right: 0px;
+}
+
+.login-header {
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.login-body {
+    padding-left: 20px;
+    padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-size: medium;
+}
+
+div#nav-tabContent{
+	
+	padding-left: 0px;
+	padding-right: 0px;
+}
+/* div#nav-list{ */
+	/* margin-right: 5px; */
+    /* margin-left: 5px; */
+/* } */
+.loginbtn{
+	border-color:#FFFFFF; 	
+	border:0.05em solid #fff;
+	margin:0 0.2em 0.2em 0;
+	border-radius:0.12em;
+	box-sizing: border-box;
+	text-decoration:none;
+	font-family:'Roboto',sans-serif;
+	font-weight:300;
+	color:#000000;
+	text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+	background-color:#FFFFFF;
+	text-align:center;
+	transition: all 0.15s;
+}
+
+.loginbtn:click{
+	text-shadow: 0 0 2em rgba(255,255,255,1);
+	color:black;
+	border-color:#FFFFFF;
+}
+
+@media all and (max-width:30em){
+.loginbtn{
+	display:block;
+	margin:0.4em auto;
+	padding:8px;
+	color: #f87373;
+}
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
